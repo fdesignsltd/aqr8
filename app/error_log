@@ -1,0 +1,100 @@
+[17-Oct-2020 17:17:43 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:43 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:43 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:17:43 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:43 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/Unit.php on line 8
+[17-Oct-2020 17:17:45 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:45 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:45 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:17:45 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:45 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/Setting.php on line 6
+[17-Oct-2020 17:17:47 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:47 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:47 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:17:47 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:47 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/Expense.php on line 12
+[17-Oct-2020 17:17:49 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:49 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:49 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:17:49 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:49 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/Tax.php on line 14
+[17-Oct-2020 17:17:51 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:51 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:51 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:17:51 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:51 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/Country.php on line 6
+[17-Oct-2020 17:17:52 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:52 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:52 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:17:52 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:52 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/Invoice.php on line 10
+[17-Oct-2020 17:17:54 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:54 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:54 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:17:54 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:54 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/Estimate.php on line 8
+[17-Oct-2020 17:17:55 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:55 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:55 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:17:55 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:55 UTC] PHP Fatal error:  Class 'Illuminate\Foundation\Auth\User' not found in /home/ar3/public_html/www_my/app/User.php on line 20
+[17-Oct-2020 17:17:57 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:57 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:57 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:17:57 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:57 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/ExpenseCategory.php on line 8
+[17-Oct-2020 17:17:58 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:58 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:58 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:17:58 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:17:58 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/EstimateTemplate.php on line 7
+[17-Oct-2020 17:18:00 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:00 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:00 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:18:00 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:00 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/Address.php on line 8
+[17-Oct-2020 17:18:01 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:01 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:01 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:18:01 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:01 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/Company.php on line 10
+[17-Oct-2020 17:18:08 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:08 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:08 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:18:08 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:08 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/InvoiceItem.php on line 12
+[17-Oct-2020 17:18:10 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:10 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:10 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:18:10 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:10 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/EstimateItem.php on line 6
+[17-Oct-2020 17:18:18 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:18 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:18 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:18:18 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:18 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/PaymentMethod.php on line 7
+[17-Oct-2020 17:18:19 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:19 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:19 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:18:19 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:19 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/TaxType.php on line 7
+[17-Oct-2020 17:18:19 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:19 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:19 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:18:19 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:19 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/CompanySetting.php on line 6
+[17-Oct-2020 17:18:20 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:20 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:20 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:18:20 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:21 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/Item.php on line 9
+[17-Oct-2020 17:18:21 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:21 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:21 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:18:21 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:21 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/Payment.php on line 10
+[17-Oct-2020 17:18:25 UTC] PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:25 UTC] PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:25 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so: cannot open shared object file: No such file or directory), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/sqlite.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[17-Oct-2020 17:18:25 UTC] PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[17-Oct-2020 17:18:25 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/ar3/public_html/www_my/app/Currency.php on line 6
