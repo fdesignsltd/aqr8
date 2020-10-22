@@ -6,7 +6,7 @@
           <div class="logo-main">
             <a href="/admin">
               <img
-                src="/assets/img/crater-logo.png"
+                src="/assets/img/logo.png"
                 alt="Crater Logo">
             </a>
           </div>
