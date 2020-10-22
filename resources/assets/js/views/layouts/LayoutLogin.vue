@@ -9,6 +9,7 @@
                 src="/assets/img/logo.png"
                 alt="Crater Logo">
             </a>
+			
           </div>
           <router-view></router-view>
           <div class="page-copyright">

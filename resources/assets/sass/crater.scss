@@ -38,7 +38,6 @@
 @import 'partials/sidebar';
 
 
-
 // Base Components
 //----------------------------------
 
@@ -115,3 +114,10 @@
 @import 'pages/payment-view.scss';
 @import 'pages/items.scss';
 @import 'pages/statuses.scss';
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #0064b7;
+    border-color:#0064b7;
+}
