@@ -30,6 +30,11 @@ import NotFoundPage from './views/errors/404.vue'
 // Dashbord
 import Dashboard from './views/dashboard/Dashboard.vue'
 
+// Practice
+import PracticeIndex from './views/practice/Index.vue'
+import PracticeCreate from './views/practice/Create.vue'
+
+
 // Customers
 import CustomerIndex from './views/customers/Index.vue'
 import CustomerCreate from './views/customers/Create.vue'
@@ -161,6 +166,23 @@ const routes = [
         path: 'dashboard',
         component: Dashboard
       },
+
+      // Practice
+      {
+        path: 'practices',
+        component: PracticeIndex
+      },
+      {
+        path: 'practices/create',
+        name: 'practices.create',
+        component: PracticeCreate
+      },
+      {
+        path: 'practices/:id/edit',
+        name: 'practices.edit',
+        component: PracticeCreate
+      },
+
 
       // Customer
       {

@@ -40,7 +40,7 @@ export default {
            {
             title: 'Practice',
             icon: 'user',
-            route: '/admin/practice'
+            route: '/admin/practices'
           },
           {
             title: 'navigation.customers',
