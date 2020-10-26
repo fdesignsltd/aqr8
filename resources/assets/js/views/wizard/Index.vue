@@ -3,7 +3,7 @@
     <div class="step-indicator">
       <img
         id="logo-crater"
-        src="/assets/img/crater-logo.png"
+        src="/assets/img/logo.png"
         alt="Crater Logo"
         class="logo-main"
       >
