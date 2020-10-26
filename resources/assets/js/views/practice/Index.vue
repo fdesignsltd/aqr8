@@ -1,7 +1,7 @@
 <template>
   <div class="customer-create main-content">
     <div class="page-header">
-      <h3 class="page-title">{{ $t('customers.title') }}</h3>
+      <h3 class="page-title">Practices</h3>
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <router-link
@@ -14,7 +14,7 @@
           <router-link
             slot="item-title"
             to="#">
-            {{ $tc('customers.customer',2) }}
+            Practices
           </router-link>
         </li>
       </ol>
@@ -32,12 +32,12 @@
             {{ $t('general.filter') }}
           </base-button>
         </div>
-        <router-link slot="item-title" class="col-xs-2" to="customers/create">
+        <router-link slot="item-title" class="col-xs-2" to="practices/create">
           <base-button
             size="large"
             icon="plus"
             color="theme">
-            {{ $t('customers.new_customer') }}
+            New Practice
           </base-button>
         </router-link>
       </div>
@@ -81,10 +81,12 @@
     <div v-cloak v-show="showEmptyScreen" class="col-xs-1 no-data-info" align="center">
       <astronaut-icon class="mt-5 mb-4"/>
       <div class="row" align="center">
-        <label class="col title">{{ $t('customers.no_customers') }}</label>
+        <label class="col title">No Practices yet!</label>
       </div>
       <div class="row">
-        <label class="description col mt-1" align="center">{{ $t('customers.list_of_customers') }}</label>
+        <label class="description col mt-1" align="center">
+          This section will contain the list of practices.  
+        </label>
       </div>
       <div class="btn-container">
         <base-button
@@ -92,9 +94,10 @@
           color="theme"
           class="mt-3"
           size="large"
-          @click="$router.push('customers/create')"
+          @click="$router.push('practices/create')"
         >
-          {{ $t('customers.add_new_customer') }}
+         Add New Practice
+
         </base-button>
       </div>
     </div>
