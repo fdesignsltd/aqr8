@@ -177,6 +177,17 @@ Route::group(['middleware' => 'api'], function () {
         ]);
 
 
+        // Practices
+        //----------------------------------
+
+        Route::post('/practices/delete', [
+            'as' => 'practices.delete',
+            'uses' => 'PracticesController@delete'
+        ]);
+
+        Route::resource('practices', 'PracticesController');
+
+
         // Customers
         //----------------------------------
 

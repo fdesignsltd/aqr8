@@ -21,7 +21,7 @@
       <div class="page-actions row">
         <div class="col-xs-2 mr-4">
           <base-button
-            v-show="totalCustomers || filtersApplied"
+            v-show="totalpractices || filtersApplied"
             :outline="true"
             :icon="filterIcon"
             size="large"
@@ -47,7 +47,7 @@
       <div v-show="showFilters" class="filter-section">
         <div class="row">
           <div class="col-sm-4">
-            <label class="form-label">{{ $t('customers.display_name') }}</label>
+            <label class="form-label">{{ $t('practices.name') }}</label>
             <base-input
               v-model="filters.display_name"
               type="text"
@@ -56,7 +56,7 @@
             />
           </div>
           <div class="col-sm-4">
-            <label class="form-label">{{ $t('customers.contact_name') }}</label>
+            <label class="form-label">{{ $t('practices.email') }}</label>
             <base-input
               v-model="filters.contact_name"
               type="text"
@@ -65,7 +65,7 @@
             />
           </div>
           <div class="col-sm-4">
-            <label class="form-label">{{ $t('customers.phone') }}</label>
+            <label class="form-label">{{ $t('practices.phone') }}</label>
             <base-input
               v-model="filters.phone"
               type="text"
@@ -104,15 +104,15 @@
 
     <div v-show="!showEmptyScreen" class="table-container">
       <div class="table-actions mt-5">
-        <p class="table-stats">{{ $t('general.showing') }}: <b>{{ customers.length }}</b> {{ $t('general.of') }} <b>{{ totalCustomers }}</b></p>
+        <p class="table-stats">{{ $t('general.showing') }}: <b>{{ practices.length }}</b> {{ $t('general.of') }} <b>{{ totalpractices }}</b></p>
 
         <transition name="fade">
-          <v-dropdown v-if="selectedCustomers.length" :show-arrow="false">
+          <v-dropdown v-if="selectedpractices.length" :show-arrow="false">
             <span slot="activator" href="#" class="table-actions-button dropdown-toggle">
               {{ $t('general.actions') }}
             </span>
             <v-dropdown-item>
-              <div class="dropdown-item" @click="removeMultipleCustomers">
+              <div class="dropdown-item" @click="removeMultiplepractices">
                 <font-awesome-icon :icon="['fas', 'trash']" class="dropdown-item-icon" />
                 {{ $t('general.delete') }}
               </div>
@@ -127,7 +127,7 @@
           v-model="selectAllFieldStatus"
           type="checkbox"
           class="custom-control-input"
-          @change="selectAllCustomers"
+          @change="selectAllpractices"
         >
         <label for="select-all" class="custom-control-label selectall">
           <span class="select-all-label">{{ $t('general.select_all') }} </span>
@@ -159,28 +159,28 @@
           </template>
         </table-column>
         <table-column
-          :label="$t('customers.display_name')"
+          :label="$t('practices.name')"
           show="name"
         />
         <table-column
-          :label="$t('customers.contact_name')"
+          :label="$t('practices.email')"
           show="contact_name"
         />
         <table-column
-          :label="$t('customers.phone')"
+          :label="$t('practices.phone')"
           show="phone"
         />
         <table-column
-          :label="$t('customers.amount_due')"
+          :label="$t('practices.address')"
           show="due_amount"
         >
           <template slot-scope="row">
-            <span> {{ $t('customers.amount_due') }} </span>
+            <span> {{ $t('practices.address') }} </span>
             <div v-html="$utils.formatMoney(row.due_amount, row.currency)"/>
           </template>
         </table-column>
         <table-column
-          :label="$t('customers.added_on')"
+          :label="$t('practices.added_on')"
           sort-as="created_at"
           show="formattedCreatedAt"
         />
@@ -190,14 +190,14 @@
           cell-class="action-dropdown"
         >
           <template slot-scope="row">
-            <span> {{ $t('customers.action') }} </span>
+            <span> {{ $t('practices.action') }} </span>
             <v-dropdown>
               <a slot="activator" href="#">
                 <dot-icon />
               </a>
               <v-dropdown-item>
 
-                <router-link :to="{path: `customers/${row.id}/edit`}" class="dropdown-item">
+                <router-link :to="{path: `practices/${row.id}/edit`}" class="dropdown-item">
                   <font-awesome-icon :icon="['fas', 'pencil-alt']" class="dropdown-item-icon"/>
                   {{ $t('general.edit') }}
                 </router-link>
@@ -238,31 +238,31 @@ export default {
       filtersApplied: false,
       isRequestOngoing: true,
       filters: {
-        display_name: '',
-        contact_name: '',
+        name: '',
+        email: '',
         phone: ''
       }
     }
   },
   computed: {
     showEmptyScreen () {
-      return !this.totalCustomers && !this.isRequestOngoing && !this.filtersApplied
+      return !this.totalpractices && !this.isRequestOngoing && !this.filtersApplied
     },
     filterIcon () {
       return (this.showFilters) ? 'times' : 'filter'
     },
-    ...mapGetters('customer', [
-      'customers',
-      'selectedCustomers',
-      'totalCustomers',
+    ...mapGetters('practice', [
+      'practices',
+      'selectedpractices',
+      'totalpractices',
       'selectAllField'
     ]),
     selectField: {
       get: function () {
-        return this.selectedCustomers
+        return this.selectedpractices
       },
       set: function (val) {
-        this.selectCustomer(val)
+        this.selectPractice(val)
       }
     },
     selectAllFieldStatus: {
@@ -282,16 +282,16 @@ export default {
   },
   destroyed () {
     if (this.selectAllField) {
-      this.selectAllCustomers()
+      this.selectAllpractices()
     }
   },
   methods: {
-    ...mapActions('customer', [
-      'fetchCustomers',
-      'selectAllCustomers',
-      'selectCustomer',
-      'deleteCustomer',
-      'deleteMultipleCustomers',
+    ...mapActions('practice', [
+      'fetchpractices',
+      'selectAllpractices',
+      'selectPractice',
+      'deletePractice',
+      'deleteMultiplepractices',
       'setSelectAllState'
     ]),
     refreshTable () {
@@ -308,13 +308,13 @@ export default {
       }
 
       this.isRequestOngoing = true
-      let response = await this.fetchCustomers(data)
+      let response = await this.fetchpractices(data)
       this.isRequestOngoing = false
 
       return {
-        data: response.data.customers.data,
+        data: response.data.practices.data,
         pagination: {
-          totalPages: response.data.customers.last_page,
+          totalPages: response.data.practices.last_page,
           currentPage: page
         }
       }
@@ -345,7 +345,7 @@ export default {
     async removeCustomer (id) {
       swal({
         title: this.$t('general.are_you_sure'),
-        text: this.$tc('customers.confirm_delete'),
+        text: this.$tc('practices.confirm_delete'),
         icon: '/assets/icon/trash-solid.svg',
         buttons: true,
         dangerMode: true
@@ -353,7 +353,7 @@ export default {
         if (willDelete) {
           let res = await this.deleteCustomer(id)
           if (res.data.success) {
-            window.toastr['success'](this.$tc('customers.deleted_message'))
+            window.toastr['success'](this.$tc('practices.deleted_message'))
             this.refreshTable()
             return true
           } else if (request.data.error) {
@@ -362,18 +362,18 @@ export default {
         }
       })
     },
-    async removeMultipleCustomers () {
+    async removeMultiplepractices () {
       swal({
         title: this.$t('general.are_you_sure'),
-        text: this.$tc('customers.confirm_delete', 2),
+        text: this.$tc('practices.confirm_delete', 2),
         icon: '/assets/icon/trash-solid.svg',
         buttons: true,
         dangerMode: true
       }).then(async (willDelete) => {
         if (willDelete) {
-          let request = await this.deleteMultipleCustomers()
+          let request = await this.deleteMultiplepractices()
           if (request.data.success) {
-            window.toastr['success'](this.$tc('customers.deleted_message', 2))
+            window.toastr['success'](this.$tc('practices.deleted_message', 2))
             this.refreshTable()
           } else if (request.data.error) {
             window.toastr['error'](request.data.message)
