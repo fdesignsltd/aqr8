@@ -37,11 +37,19 @@ export default {
             icon: 'tachometer-alt',
             route: '/admin/dashboard'
           },
-           {
-            title: 'Practice',
+          
+          {
+            title: 'navigation.practice',
             icon: 'user',
             route: '/admin/practices'
           },
+
+          {
+            title: 'navigation.client',
+            icon: 'user',
+            route: '/admin/clients'
+          },
+
           {
             title: 'navigation.customers',
             icon: 'user',

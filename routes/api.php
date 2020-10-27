@@ -177,6 +177,7 @@ Route::group(['middleware' => 'api'], function () {
         ]);
 
 
+        /*
         // Practices
         //----------------------------------
 
@@ -186,6 +187,8 @@ Route::group(['middleware' => 'api'], function () {
         ]);
 
         Route::resource('practices', 'PracticesController');
+
+            */
 
 
         // Customers
@@ -197,6 +200,19 @@ Route::group(['middleware' => 'api'], function () {
         ]);
 
         Route::resource('customers', 'CustomersController');
+
+
+
+          // Clients
+        //----------------------------------
+
+        Route::post('/clients/delete', [
+            'as' => 'clients.delete',
+            'uses' => 'clientsController@delete'
+        ]);
+
+        Route::resource('clients', 'ClientsController');
+
 
 
         // Items

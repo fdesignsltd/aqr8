@@ -32,6 +32,8 @@ class ItemsController extends Controller
             'items' => $items,
             'taxTypes' => TaxType::latest()->get()
         ]);
+
+        
     }
 
     public function edit(Request $request, $id)

@@ -43,6 +43,10 @@ import CustomerCreate from './views/customers/Create.vue'
 import ItemsIndex from './views/items/Index.vue'
 import ItemCreate from './views/items/Create.vue'
 
+// Clients
+import ClientsIndex from './views/clients/Index.vue'
+import ClientCreate from './views/clients/Create.vue'
+
 // Invoices
 import InvoiceIndex from './views/invoices/Index.vue'
 import InvoiceCreate from './views/invoices/Create.vue'
@@ -198,6 +202,24 @@ const routes = [
         path: 'customers/:id/edit',
         name: 'customers.edit',
         component: CustomerCreate
+      },
+
+
+
+      // Clients
+      {
+        path: 'clients',
+        component: ClientsIndex
+      },
+      {
+        path: 'clients/create',
+        name: 'clients.create',
+        component: ClientCreate
+      },
+      {
+        path: 'clients/:id/edit',
+        name: 'clients.edit',
+        component: ClientCreate
       },
 
       // Items
