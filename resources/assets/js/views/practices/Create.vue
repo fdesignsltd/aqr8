@@ -9,12 +9,12 @@
       </ol>
     </div>
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-12">
         <div class="card">
           <form action="" @submit.prevent="submitItem">
             <div class="card-body">
               <div class="form-group">
-                <label class="control-label">{{ $t('items.name') }}</label><span class="text-danger"> *</span>
+                <label class="control-label">{{ 'Name' }}</label><span class="text-danger"> *</span>
                 <base-input
                   v-model.trim="formData.name"
                   :invalid="$v.formData.name.$error"
@@ -31,7 +31,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label>{{ $t('items.price') }}</label><span class="text-danger"> *</span>
+                <label>{{ 'Practice Code' }}</label><span class="text-danger"> *</span>
                 <div class="base-input">
                   <money
                     :class="{'invalid' : $v.formData.price.$error}"
@@ -47,7 +47,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label>{{ $t('items.unit') }}</label>
+                <label>{{ 'PCT' }}</label>
                 <base-select
                   v-model="formData.unit"
                   :options="itemUnits"
@@ -65,7 +65,7 @@
                 </base-select>
               </div>
               <div v-if="isTaxPerItem" class="form-group">
-                <label>{{ $t('items.taxes') }}</label>
+                <label>{{ 'Mileage' }}</label>
                 <base-select
                   v-model="formData.taxes"
                   :options="getTaxTypes"
@@ -100,7 +100,7 @@
                   type="submit"
                   class="collapse-button"
                 >
-                  {{ isEdit ? $t('items.update_item') : $t('items.save_item') }}
+                  {{ isEdit ? 'Edit Practice' : 'Save Practice' }}
                 </base-button>
               </div>
             </div>

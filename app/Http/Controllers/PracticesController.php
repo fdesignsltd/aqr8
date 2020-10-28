@@ -33,8 +33,8 @@ class PracticesController extends Controller
             ->where('user_id', Auth::id())
             ->applyFilters($request->only([
                 'search',
-                'price',
-                'unit_id',
+                'name',
+                'email',
                 'orderByField',
                 'orderBy'
             ]))
