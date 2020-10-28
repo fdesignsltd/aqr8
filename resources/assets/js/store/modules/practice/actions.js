@@ -1,6 +1,6 @@
 import * as types from './mutation-types'
 
-export const fetchItems = ({ commit, dispatch, state }, params) => {
+export const fetchPractices = ({ commit, dispatch, state }, params) => {
   return new Promise((resolve, reject) => {
     
     window.axios.get(`/api/practices`, {params}).then((response) => {

@@ -52,7 +52,7 @@
       <div v-show="showFilters" class="filter-section">
         <div class="row">
           <div class="col-sm-4">
-            <label class="form-label"> {{ $tc('items.name') }} </label>
+            <label class="form-label">NAME </label>
             <base-input
               v-model="filters.name"
               type="text"
@@ -61,7 +61,7 @@
             />
           </div>
           <div class="col-sm-4">
-            <label class="form-label"> {{ $tc('items.unit') }} </label>
+            <label class="form-label">Email </label>
             <base-select
               v-model="filters.unit"
               :options="itemUnits"
@@ -73,7 +73,7 @@
             />
           </div>
           <div class="col-sm-4">
-            <label class="form-label"> {{ $tc('items.price') }} </label>
+            <label class="form-label"> Phone</label>
             <base-input
               v-model="filters.price"
               type="text"
@@ -89,10 +89,12 @@
     <div v-cloak v-show="showEmptyScreen" class="col-xs-1 no-data-info" align="center">
       <satellite-icon class="mt-5 mb-4"/>
       <div class="row" align="center">
-        <label class="col title">{{ $t('items.no_items') }}</label>
+        <label class="col title">No Practices yet!</label>
       </div>
       <div class="row">
-        <label class="description col mt-1" align="center">{{ $t('items.list_of_items') }}</label>
+        <label class="description col mt-1" align="center">
+           This section will contain the list of practices.
+          </label>
       </div>
       <div class="btn-container">
         <base-button
@@ -100,9 +102,9 @@
           color="theme"
           class="mt-3"
           size="large"
-          @click="$router.push('items/create')"
+          @click="$router.push('practices/create')"
         >
-          {{ $t('items.add_new_item') }}
+          Add New Practice
         </base-button>
       </div>
     </div>
@@ -164,26 +166,22 @@
           </template>
         </table-column>
         <table-column
-          :label="$t('items.name')"
+          :label="'Name'"
           show="name"
         />
         <table-column
-          :label="$t('items.unit')"
-          show="unit_name"
+          :label="'Practice Code'"
+          show="practice_code"
         />
         <table-column
-          :label="$t('items.price')"
-          show="price"
+          :label="'Email'"
+          show="email"
         >
-          <template slot-scope="row">
-            <span> {{ $t('items.price') }} </span>
-            <div v-html="$utils.formatMoney(row.price, defaultCurrency)" />
-          </template>
         </table-column>
         <table-column
-          :label="$t('items.added_on')"
+          :label="'Phone'"
           sort-as="created_at"
-          show="formattedCreatedAt"
+          show="phone"
         />
         <table-column
           :sortable="false"
@@ -292,7 +290,7 @@ export default {
   },
   methods: {
     ...mapActions('practice', [
-      'fetchItems',
+      'fetchPractices',
       'selectAllItems',
       'selectItem',
       'deleteItem',
@@ -305,8 +303,6 @@ export default {
 
 
     async fetchData ({ page, filter, sort }) {
-      console.log('fetching');
-     
       let data = {
         search: this.filters.name !== null ? this.filters.name : '',
         unit_id: this.filters.unit !== null ? this.filters.unit.id : '',
@@ -317,7 +313,11 @@ export default {
       }
 
       this.isRequestOngoing = true
-      let response = await this.fetchItems(data)
+      let response = await this.fetchPractices(data)
+
+      console.log(response);
+
+
       this.isRequestOngoing = false
 
       return {

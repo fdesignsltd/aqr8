@@ -1,11 +1,11 @@
 <template>
   <div class="main-content item-create">
     <div class="page-header">
-      <h3 class="page-title">{{ isEdit ? $t('items.edit_item') : $t('items.new_item') }}</h3>
+      <h3 class="page-title">{{ isEdit ? 'Edit Practice' : 'New Practice' }}</h3>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><router-link slot="item-title" to="/admin/dashboard">{{ $t('general.home') }}</router-link></li>
-        <li class="breadcrumb-item"><router-link slot="item-title" to="/admin/items">{{ $tc('items.item',2) }}</router-link></li>
-        <li class="breadcrumb-item"><a href="#"> {{ isEdit ? $t('items.edit_item') : $t('items.new_item') }}</a></li>
+        <li class="breadcrumb-item"><router-link slot="item-title" to="/admin/practices">Practices</router-link></li>
+        <li class="breadcrumb-item"><a href="#"> {{ isEdit ? 'Edit Practice' : 'New Practice' }} </a></li>
       </ol>
     </div>
     <div class="row">

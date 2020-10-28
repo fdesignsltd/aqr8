@@ -3,19 +3,34 @@ namespace Crater\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Crater\Http\Requests;
+use Crater\Practice;
+use Crater\User;
 use Crater\Item;
 use Crater\TaxType;
 use Crater\Tax;
-use Crater\User;
+use Auth;
 
 class PracticesController extends Controller
 {
     public function index(Request $request)
     {
+
+       /* $limit = $request->has('limit') ? $request->limit : 10;
+
+        $items = Practice::where('user_id', Auth::id())
+                ->orderBy('name', 'desc')
+                ->take($limit)
+                ->get();
+
+            return response()->json([
+                'items' => $items
+            ]); */
+
+
         $limit = $request->has('limit') ? $request->limit : 10;
 
-        $items = Item::with(['taxes'])
-            ->leftJoin('units', 'units.id', '=', 'items.unit_id')
+        $items = Practice::select('practices.*')
+            ->where('user_id', Auth::id())
             ->applyFilters($request->only([
                 'search',
                 'price',
@@ -23,8 +38,6 @@ class PracticesController extends Controller
                 'orderByField',
                 'orderBy'
             ]))
-            ->whereCompany($request->header('company'))
-            ->select('items.*', 'units.name as unit_name')
             ->latest()
             ->paginate($limit);
 
@@ -32,6 +45,8 @@ class PracticesController extends Controller
             'items' => $items,
             'taxTypes' => TaxType::latest()->get()
         ]);
+
+
     }
 
     public function edit(Request $request, $id)
