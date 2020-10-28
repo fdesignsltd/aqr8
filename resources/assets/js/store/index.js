@@ -19,7 +19,7 @@ import userProfile from './modules/settings/user-profile'
 import payment from './modules/payment'
 import preferences from './modules/settings/preferences'
 import item from './modules/item'
-import client from './modules/client'
+import practice from './modules/practice'
 import modal from './modules/modal'
 import currency from './modules/currency'
 import general from './modules/settings/general'
@@ -52,7 +52,7 @@ export default new Vuex.Store({
     dashboard,
     estimate,
     item,
-    client,
+    practice,
     invoice,
     expense,
     modal,

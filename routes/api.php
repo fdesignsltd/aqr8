@@ -203,15 +203,15 @@ Route::group(['middleware' => 'api'], function () {
 
 
 
-          // Clients
+          // Practices
         //----------------------------------
 
-        Route::post('/clients/delete', [
-            'as' => 'clients.delete',
-            'uses' => 'clientsController@delete'
+        Route::post('/practices/delete', [
+            'as' => 'practices.delete',
+            'uses' => 'PracticesController@delete'
         ]);
 
-        Route::resource('clients', 'ClientsController');
+        Route::resource('practices', 'PracticesController');
 
 
 

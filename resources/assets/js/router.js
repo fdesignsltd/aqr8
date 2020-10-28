@@ -30,9 +30,6 @@ import NotFoundPage from './views/errors/404.vue'
 // Dashbord
 import Dashboard from './views/dashboard/Dashboard.vue'
 
-// Practice
-import PracticeIndex from './views/practice/Index.vue'
-import PracticeCreate from './views/practice/Create.vue'
 
 
 // Customers
@@ -43,9 +40,11 @@ import CustomerCreate from './views/customers/Create.vue'
 import ItemsIndex from './views/items/Index.vue'
 import ItemCreate from './views/items/Create.vue'
 
-// Clients
-import ClientsIndex from './views/clients/Index.vue'
-import ClientCreate from './views/clients/Create.vue'
+
+// Practices
+import PracticeIndex from './views/practices/Index.vue'
+import PracticeCreate from './views/practices/Create.vue'
+
 
 // Invoices
 import InvoiceIndex from './views/invoices/Index.vue'
@@ -171,23 +170,6 @@ const routes = [
         component: Dashboard
       },
 
-      // Practice
-      {
-        path: 'practices',
-        component: PracticeIndex
-      },
-      {
-        path: 'practices/create',
-        name: 'practices.create',
-        component: PracticeCreate
-      },
-      {
-        path: 'practices/:id/edit',
-        name: 'practices.edit',
-        component: PracticeCreate
-      },
-
-
       // Customer
       {
         path: 'customers',
@@ -205,22 +187,22 @@ const routes = [
       },
 
 
+       // Practices
+       {
+        path: 'practices',
+        component: PracticeIndex
+      },
+      {
+        path: 'practices/create',
+        name: 'practices.create',
+        component: PracticeCreate
+      },
+      {
+        path: 'practices/:id/edit',
+        name: 'practices.edit',
+        component: PracticeCreate
+      },
 
-      // Clients
-      {
-        path: 'clients',
-        component: ClientsIndex
-      },
-      {
-        path: 'clients/create',
-        name: 'clients.create',
-        component: ClientCreate
-      },
-      {
-        path: 'clients/:id/edit',
-        name: 'clients.edit',
-        component: ClientCreate
-      },
 
       // Items
       {

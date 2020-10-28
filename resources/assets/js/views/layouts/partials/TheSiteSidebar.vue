@@ -45,12 +45,6 @@ export default {
           },
 
           {
-            title: 'navigation.client',
-            icon: 'user',
-            route: '/admin/clients'
-          },
-
-          {
             title: 'navigation.customers',
             icon: 'user',
             route: '/admin/customers'
