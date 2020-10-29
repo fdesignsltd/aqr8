@@ -1,62 +1,48 @@
 import * as types from './mutation-types'
 
 export default {
-  [types.BOOTSTRAP_ITEMS] (state, items) {
-    state.items = items
+  [types.BOOTSTRAP_PRACTICES] (state, practices) {
+    state.practices = practices
   },
 
-  [types.SET_TOTAL_ITEMS] (state, totalItems) {
-    state.totalItems = totalItems
+  [types.SET_TOTAL_PRACTICES] (state, totalPractices) {
+    state.totalPractices = totalPractices
   },
 
-  [types.ADD_ITEM] (state, data) {
-    state.items.push(data.item)
+  [types.ADD_PRACTICE] (state, data) {
+    state.practices.push(data.practice)
   },
 
-  [types.UPDATE_ITEM] (state, data) {
-    let pos = state.items.findIndex(item => item.id === data.item.id)
+  [types.UPDATE_PRACTICE] (state, data) {
+    let pos = state.practices.findIndex(practice => practice.id === data.practice.id)
 
-    state.items[pos] = data.item
+    state.practices[pos] = data.practice
   },
 
-  [types.DELETE_ITEM] (state, id) {
-    let index = state.items.findIndex(item => item.id === id)
-    state.items.splice(index, 1)
+  [types.DELETE_PRACTICE] (state, id) {
+    let index = state.practices.findIndex(practice => practice.id === id)
+    state.practices.splice(index, 1)
   },
 
-  [types.DELETE_MULTIPLE_ITEMS] (state, selectedItems) {
-    selectedItems.forEach((item) => {
-      let index = state.items.findIndex(_item => _item.id === item.id)
-      state.items.splice(index, 1)
+  [types.DELETE_MULTIPLE_PRACTICES] (state, selectedPractices) {
+    selectedPractices.forEach((practice) => {
+      let index = state.practices.findIndex(_practice => _practice.id === practice.id)
+      state.practices.splice(index, 1)
     })
 
-    state.selectedItems = []
+    state.selectedPractices = []
   },
 
-  [types.SET_SELECTED_ITEMS] (state, data) {
-    state.selectedItems = data
+  [types.SET_SELECTED_PRACTICES] (state, data) {
+    state.selectedPractices = data
+  },
+
+  [types.RESET_SELECTED_PRACTICE] (state, data) {
+    state.selectedPractice = null
   },
 
   [types.SET_SELECT_ALL_STATE] (state, data) {
     state.selectAllField = data
-  },
-
-  [types.ADD_ITEM_UNIT] (state, data) {
-    state.itemUnits = [data.unit, ...state.itemUnits]
-  },
-
-  [types.SET_ITEM_UNITS] (state, data) {
-    state.itemUnits = data
-  },
-
-  [types.DELETE_ITEM_UNIT] (state, id) {
-    let index = state.itemUnits.findIndex(unit => unit.id === id)
-    state.itemUnits.splice(index, 1)
-  },
-
-  [types.UPDATE_ITEM_UNIT] (state, data) {
-    let pos = state.itemUnits.findIndex(unit => unit.id === data.unit.id)
-    state.itemUnits.splice(pos, 1)
-    state.itemUnits = [data.unit, ...state.itemUnits]
   }
+  
 }

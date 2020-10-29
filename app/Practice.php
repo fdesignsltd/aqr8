@@ -2,8 +2,6 @@
 namespace Crater;
 
 use Illuminate\Database\Eloquent\Model;
-use Crater\InvoiceItem;
-use Crater\EstimateItem;
 use Carbon\Carbon;
 
 class Practice extends Model
@@ -27,19 +25,20 @@ class Practice extends Model
 
     public function scopeWhereSearch($query, $search)
     {
-        return $query->where('items.name', 'LIKE', '%'.$search.'%');
+        return $query->where('practices.name', 'LIKE', '%'.$search.'%');
     }
 
-    public function scopeWherePrice($query, $price)
+    public function scopeWhereEmail($query, $email)
     {
-        return $query->where('items.price', $price);
+        return $query->where('practices.email', $email);
     }
 
-    public function scopeWhereUnit($query, $unit_id)
+    public function scopeWherePhone($query, $phone)
     {
-        return $query->where('items.unit_id', $unit_id);
+        return $query->where('practices.phone', $phone);
     }
 
+   
     public function scopeWhereOrder($query, $orderByField, $orderBy)
     {
         $query->orderBy($orderByField, $orderBy);
@@ -53,12 +52,12 @@ class Practice extends Model
             $query->whereSearch($filters->get('search'));
         }
 
-        if ($filters->get('price')) {
-            $query->wherePrice($filters->get('price'));
+        if ($filters->get('email')) {
+            $query->whereEmail($filters->get('email'));
         }
 
-        if ($filters->get('unit_id')) {
-            $query->whereUnit($filters->get('unit_id'));
+        if ($filters->get('phone')) {
+            $query->wherePhone($filters->get('phone'));
         }
 
         if ($filters->get('orderByField') || $filters->get('orderBy')) {
@@ -66,35 +65,5 @@ class Practice extends Model
             $orderBy = $filters->get('orderBy') ? $filters->get('orderBy') : 'asc';
             $query->whereOrder($field, $orderBy);
         }
-    }
-
-    public function getFormattedCreatedAtAttribute($value)
-    {
-        $dateFormat = CompanySetting::getSetting('carbon_date_format', $this->company_id);
-        return Carbon::parse($this->created_at)->format($dateFormat);
-    }
-
-   
-
-
-    public static function deleteItem($id)
-    {
-        $item = Item::find($id);
-
-        if ($item->taxes()->exists() && $item->taxes()->count() > 0) {
-            return false;
-        }
-
-        if ($item->invoiceItems()->exists() && $item->invoiceItems()->count() > 0) {
-            return false;
-        }
-
-        if ($item->estimateItems()->exists() && $item->estimateItems()->count() > 0) {
-            return false;
-        }
-
-        $item->delete();
-
-        return true;
     }
 }

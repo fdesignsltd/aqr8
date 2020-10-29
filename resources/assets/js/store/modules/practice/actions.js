@@ -2,10 +2,9 @@ import * as types from './mutation-types'
 
 export const fetchPractices = ({ commit, dispatch, state }, params) => {
   return new Promise((resolve, reject) => {
-    
     window.axios.get(`/api/practices`, {params}).then((response) => {
-      commit(types.BOOTSTRAP_ITEMS, response.data.items.data)
-      commit(types.SET_TOTAL_ITEMS, response.data.items.total)
+      commit(types.BOOTSTRAP_PRACTICES, response.data.practices.data)
+      commit(types.SET_TOTAL_PRACTICES, response.data.practices.total)
       resolve(response)
     }).catch((err) => {
       reject(err)
@@ -13,7 +12,7 @@ export const fetchPractices = ({ commit, dispatch, state }, params) => {
   })
 }
 
-export const fetchItem = ({ commit, dispatch }, id) => {
+export const fetchPractice = ({ commit, dispatch }, id) => {
   return new Promise((resolve, reject) => {
     window.axios.get(`/api/practices/${id}/edit`).then((response) => {
       resolve(response)
@@ -23,10 +22,10 @@ export const fetchItem = ({ commit, dispatch }, id) => {
   })
 }
 
-export const addItem = ({ commit, dispatch, state }, data) => {
+export const addPractice = ({ commit, dispatch, state }, data) => {
   return new Promise((resolve, reject) => {
-    window.axios.post('/api/clients', data).then((response) => {
-      commit(types.ADD_ITEM, response.data)
+    window.axios.post('/api/practices', data).then((response) => {
+      commit(types.ADD_PRACTICE, response.data)
       resolve(response)
     }).catch((err) => {
       reject(err)
@@ -34,10 +33,10 @@ export const addItem = ({ commit, dispatch, state }, data) => {
   })
 }
 
-export const updateItem = ({ commit, dispatch, state }, data) => {
+export const updatePractice = ({ commit, dispatch, state }, data) => {
   return new Promise((resolve, reject) => {
-    window.axios.put(`/api/clients/${data.id}`, data).then((response) => {
-      commit(types.UPDATE_ITEM, response.data)
+    window.axios.put(`/api/practices/${data.id}`, data).then((response) => {
+      commit(types.UPDATE_PRACTICE, response.data)
       resolve(response)
     }).catch((err) => {
       reject(err)
@@ -45,10 +44,10 @@ export const updateItem = ({ commit, dispatch, state }, data) => {
   })
 }
 
-export const deleteItem = ({ commit, dispatch, state }, id) => {
+export const deletePractice = ({ commit, dispatch, state }, id) => {
   return new Promise((resolve, reject) => {
-    window.axios.delete(`/api/clients/${id}`).then((response) => {
-      commit(types.DELETE_ITEM, response.data)
+    window.axios.delete(`/api/practices/${id}`).then((response) => {
+      commit(types.DELETE_PRACTICE, response.data)
       resolve(response)
     }).catch((err) => {
       reject(err)
@@ -56,10 +55,10 @@ export const deleteItem = ({ commit, dispatch, state }, id) => {
   })
 }
 
-export const deleteMultipleItems = ({ commit, dispatch, state }, id) => {
+export const deleteMultiplePractices = ({ commit, dispatch, state }, id) => {
   return new Promise((resolve, reject) => {
-    window.axios.post(`/api/clients/delete`, {'id': state.selectedItems}).then((response) => {
-      commit(types.DELETE_MULTIPLE_ITEMS, state.selectedItems)
+    window.axios.post(`/api/practices/delete`, {'id': state.selectedPractices}).then((response) => {
+      commit(types.DELETE_MULTIPLE_PRACTICES, state.selectedPractices)
       resolve(response)
     }).catch((err) => {
       reject(err)
@@ -71,78 +70,22 @@ export const setSelectAllState = ({ commit, dispatch, state }, data) => {
   commit(types.SET_SELECT_ALL_STATE, data)
 }
 
-export const selectAllItems = ({ commit, dispatch, state }) => {
-  if (state.selectedItems.length === state.items.length) {
-    commit(types.SET_SELECTED_ITEMS, [])
+export const selectAllPractices = ({ commit, dispatch, state }) => {
+  if (state.selectedPractices.length === state.practices.length) {
+    commit(types.SET_SELECTED_PRACTICES, [])
     commit(types.SET_SELECT_ALL_STATE, false)
   } else {
-    let allItemIds = state.items.map(item => item.id)
-    commit(types.SET_SELECTED_ITEMS, allItemIds)
+    let allPracticeIds = state.practices.map(practice => practice.id)
+    commit(types.SET_SELECTED_PRACTICES, allPracticeIds)
     commit(types.SET_SELECT_ALL_STATE, true)
   }
 }
 
-export const selectItem = ({ commit, dispatch, state }, data) => {
-  commit(types.SET_SELECTED_ITEMS, data)
-  if (state.selectedItems.length === state.items.length) {
+export const selectPractice = ({ commit, dispatch, state }, data) => {
+  commit(types.SET_SELECTED_PRACTICES, data)
+  if (state.selectedPractices.length === state.practices.length) {
     commit(types.SET_SELECT_ALL_STATE, true)
   } else {
     commit(types.SET_SELECT_ALL_STATE, false)
   }
-}
-
-export const addItemUnit = ({ commit, dispatch, state }, data) => {
-  return new Promise((resolve, reject) => {
-    window.axios.post(`/api/units`, data).then((response) => {
-      commit(types.ADD_ITEM_UNIT, response.data)
-      resolve(response)
-    }).catch((err) => {
-      reject(err)
-    })
-  })
-}
-
-export const updateItemUnit = ({ commit, dispatch, state }, data) => {
-  return new Promise((resolve, reject) => {
-    window.axios.put(`/api/units/${data.id}`, data).then((response) => {
-      commit(types.UPDATE_ITEM_UNIT, response.data)
-      resolve(response)
-    }).catch((err) => {
-      reject(err)
-    })
-  })
-}
-
-export const fetchItemUnits = ({ commit, dispatch, state }) => {
-  return new Promise((resolve, reject) => {
-    window.axios.get(`/api/units`).then((response) => {
-      commit(types.SET_ITEM_UNITS, response.data.units)
-      resolve(response)
-    }).catch((err) => {
-      reject(err)
-    })
-  })
-}
-
-export const fatchItemUnit = ({ commit, dispatch, state }, id) => {
-  return new Promise((resolve, reject) => {
-    window.axios.get(`/api/units/${id}`).then((response) => {
-      resolve(response)
-    }).catch((err) => {
-      reject(err)
-    })
-  })
-}
-
-export const deleteItemUnit = ({ commit, dispatch, state }, id) => {
-  return new Promise((resolve, reject) => {
-    window.axios.delete(`/api/units/${id}`).then((response) => {
-      if (!response.data.error) {
-        commit(types.DELETE_ITEM_UNIT, id)
-      }
-      resolve(response)
-    }).catch((err) => {
-      reject(err)
-    })
-  })
 }

@@ -600,6 +600,7 @@ export default {
           this.isLoading = true
           this.formData.currency_id = this.currency.id
         }
+        
         try {
           let response = await this.addCustomer(this.formData)
           if (response.data.success) {
@@ -614,6 +615,8 @@ export default {
             window.toastr['error'](this.$t('validation.email_already_taken'))
           }
         }
+
+
       }
     }
   }

@@ -5,9 +5,6 @@ use Illuminate\Http\Request;
 use Crater\Http\Requests;
 use Crater\Practice;
 use Crater\User;
-use Crater\Item;
-use Crater\TaxType;
-use Crater\Tax;
 use Auth;
 
 class PracticesController extends Controller
@@ -15,21 +12,9 @@ class PracticesController extends Controller
     public function index(Request $request)
     {
 
-       /* $limit = $request->has('limit') ? $request->limit : 10;
-
-        $items = Practice::where('user_id', Auth::id())
-                ->orderBy('name', 'desc')
-                ->take($limit)
-                ->get();
-
-            return response()->json([
-                'items' => $items
-            ]); */
-
-
         $limit = $request->has('limit') ? $request->limit : 10;
 
-        $items = Practice::select('practices.*')
+        $practices = Practice::select('practices.*')
             ->where('user_id', Auth::id())
             ->applyFilters($request->only([
                 'search',
@@ -42,8 +27,7 @@ class PracticesController extends Controller
             ->paginate($limit);
 
         return response()->json([
-            'items' => $items,
-            'taxTypes' => TaxType::latest()->get()
+            'practices' => $practices
         ]);
 
 
@@ -51,97 +35,76 @@ class PracticesController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $item = Item::with(['taxes', 'unit'])->find($id);
+        $practice = Practice::find($id);
 
         return response()->json([
-            'item' => $item,
-            'taxes' => Tax::whereCompany($request->header('company'))
-                ->latest()
-                ->get()
+            'practice' => $practice
         ]);
     }
 
 
      /**
-     * Create Item.
+     * Create Practice.
      *
-     * @param  Crater\Http\Requests\ItemsRequest $request
+     * @param  Crater\Http\Requests\PracticesRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Requests\ItemsRequest $request)
+    public function store(Requests\PracticesRequest $request)
     {
-        $item = new Item();
-        $item->name = $request->name;
-        $item->unit_id = $request->unit_id;
-        $item->description = $request->description;
-        $item->company_id = $request->header('company');
-        $item->price = $request->price;
-        $item->save();
 
-        if ($request->has('taxes')) {
-            foreach ($request->taxes as $tax) {
-                $tax['company_id'] = $request->header('company');
-                $item->taxes()->create($tax);
-            }
-        }
+        $practice = new Practice();
+        $practice->name = $request->name;
+        $practice->practice_code = $request->practice_code;
+        $practice->pct = $request->pct;
+        $practice->mileage = $request->mileage;
+        $practice->email = $request->email;
+        $practice->user_id = Auth::id();
+        $practice->save();
 
-        $item = Item::with('taxes')->find($item->id);
+        $practice = Practice::find($practice->id);
 
         return response()->json([
-            'item' => $item
+            'practice' => $practice,
+            'success' => true
         ]);
     }
 
     /**
-     * Update an existing Item.
+     * Update an existing Practice.
      *
-     * @param  Crater\Http\Requests\ItemsRequest $request
+     * @param  Crater\Http\Requests\PracticesRequest $request
      * @param int $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Requests\ItemsRequest $request, $id)
+    public function update(Requests\PracticesRequest $request, $id)
     {
-        $item = Item::find($id);
-        $item->name = $request->name;
-        $item->unit_id = $request->unit_id;
-        $item->description = $request->description;
-        $item->price = $request->price;
-        $item->save();
-
-        $oldTaxes = $item->taxes->toArray();
-
-        foreach ($oldTaxes as $oldTax) {
-            Tax::destroy($oldTax['id']);
-        }
-
-        if ($request->has('taxes')) {
-            foreach ($request->taxes as $tax) {
-                $tax['company_id'] = $request->header('company');
-                $item->taxes()->create($tax);
-            }
-        }
-
-        $item = Item::with('taxes')->find($item->id);
+        $practice = Practice::find($id);
+        $practice->name = $request->name;
+        $practice->practice_code = $request->practice_code;
+        $practice->pct = $request->pct;
+        $practice->mileage = $request->mileage;
+        $practice->save();
 
         return response()->json([
-            'item' => $item
+            'practice' => $practice,
+            'success' => true
         ]);
     }
 
 
     /**
-     * Delete an existing Item.
+     * Delete an existing Practice.
      *
      * @param int $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        $data = Item::deleteItem($id);
+        $data = Practice::deletePractice($id);
 
         if (!$data) {
             return response()->json([
-                'error' => 'item_attached'
+                'error' => 'practice_attached'
             ]);
         }
 
@@ -153,29 +116,29 @@ class PracticesController extends Controller
 
 
     /**
-     * Delete a list of existing Items.
+     * Delete a list of existing Practices.
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function delete(Request $request)
     {
-        $items = [];
+        $practices = [];
         foreach ($request->id as $id) {
-            $item = Item::deleteItem($id);
-            if ($item) {
-                array_push($items, $id);
+            $practice = Practice::deletePractice($id);
+            if ($practice) {
+                array_push($practices, $id);
             }
         }
 
-        if (empty($items)) {
+        if (empty($practices)) {
             return response()->json([
                 'success' => true
             ]);
         }
 
         return response()->json([
-            'items' => $items
+            'practices' => $practices
         ]);
     }
 }

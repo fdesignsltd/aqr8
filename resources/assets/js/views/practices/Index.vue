@@ -25,7 +25,7 @@
       <div class="page-actions row">
         <div class="col-xs-2 mr-4">
           <base-button
-            v-show="totalItems || filtersApplied"
+            v-show="totalPractices || filtersApplied"
             :outline="true"
             :icon="filterIcon"
             color="theme"
@@ -62,20 +62,17 @@
           </div>
           <div class="col-sm-4">
             <label class="form-label">Email </label>
-            <base-select
-              v-model="filters.unit"
-              :options="itemUnits"
-              :searchable="true"
-              :show-labels="false"
-              :placeholder="$t('items.select_a_unit')"
-              label="name"
+            <base-input
+              v-model="filters.email"
+              type="text"
+              name="name"
               autocomplete="off"
             />
           </div>
           <div class="col-sm-4">
             <label class="form-label"> Phone</label>
             <base-input
-              v-model="filters.price"
+              v-model="filters.phone"
               type="text"
               name="name"
               autocomplete="off"
@@ -111,9 +108,9 @@
 
     <div v-show="!showEmptyScreen" class="table-container">
       <div class="table-actions mt-5">
-        <p class="table-stats">{{ $t('general.showing') }}: <b>{{ items.length }}</b> {{ $t('general.of') }} <b>{{ totalItems }}</b></p>
+        <p class="table-stats">{{ $t('general.showing') }}: <b>{{ practices.length }}</b> {{ $t('general.of') }} <b>{{ totalPractices }}</b></p>
         <transition name="fade">
-          <v-dropdown v-if="selectedItems.length" :show-arrow="false">
+          <v-dropdown v-if="selectedPractices.length" :show-arrow="false">
             <span slot="activator" href="#" class="table-actions-button dropdown-toggle">
               {{ $t('general.actions') }}
             </span>
@@ -196,16 +193,16 @@
               </a>
               <v-dropdown-item>
 
-                <router-link :to="{path: `items/${row.id}/edit`}" class="dropdown-item">
+                <router-link :to="{path: `practices/${row.id}/edit`}" class="dropdown-item">
                   <font-awesome-icon :icon="['fas', 'pencil-alt']" class="dropdown-item-icon" />
-                  {{ $t('general.edit') }}
+                  {{ 'Edit' }}
                 </router-link>
 
               </v-dropdown-item>
               <v-dropdown-item>
                 <div class="dropdown-item" @click="removeItems(row.id)">
                   <font-awesome-icon :icon="['fas', 'trash']" class="dropdown-item-icon" />
-                  {{ $t('general.delete') }}
+                  {{ 'Delete' }}
                 </div>
               </v-dropdown-item>
             </v-dropdown>
@@ -244,24 +241,23 @@ export default {
   },
   computed: {
     ...mapGetters('practice', [
-      'items',
-      'selectedItems',
-      'totalItems',
-      'selectAllField',
-      'itemUnits'
+      'practices',
+      'selectedPractices',
+      'totalPractices',
+      'selectAllField'
     ]),
     ...mapGetters('currency', [
       'defaultCurrency'
     ]),
     showEmptyScreen () {
-      return !this.totalItems && !this.isRequestOngoing && !this.filtersApplied
+      return !this.totalPractices && !this.isRequestOngoing && !this.filtersApplied
     },
     filterIcon () {
       return (this.showFilters) ? 'times' : 'filter'
     },
     selectField: {
       get: function () {
-        return this.selectedItems
+        return this.selectedPractices
       },
       set: function (val) {
         this.selectItem(val)
@@ -315,15 +311,14 @@ export default {
       this.isRequestOngoing = true
       let response = await this.fetchPractices(data)
 
-      console.log(response);
-
+     
 
       this.isRequestOngoing = false
 
       return {
-        data: response.data.items.data,
+        data: response.data.practices.data,
         pagination: {
-          totalPages: response.data.items.last_page,
+          totalPages: response.data.practices.last_page,
           currentPage: page
         }
       }
