@@ -20,6 +20,7 @@ class PracticesController extends Controller
                 'search',
                 'name',
                 'email',
+                'phone',
                 'orderByField',
                 'orderBy'
             ]))

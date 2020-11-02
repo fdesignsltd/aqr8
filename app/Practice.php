@@ -30,12 +30,12 @@ class Practice extends Model
 
     public function scopeWhereEmail($query, $email)
     {
-        return $query->where('practices.email', $email);
+        return $query->where('practices.email',  'LIKE', '%'.$email.'%');
     }
 
     public function scopeWherePhone($query, $phone)
     {
-        return $query->where('practices.phone', $phone);
+        return $query->where('practices.phone',  'LIKE', '%'.$phone.'%');
     }
 
    
@@ -65,5 +65,16 @@ class Practice extends Model
             $orderBy = $filters->get('orderBy') ? $filters->get('orderBy') : 'asc';
             $query->whereOrder($field, $orderBy);
         }
+    }
+
+
+    public static function deletePractice($id)
+    {
+        $practice = Practice::find($id);
+
+   
+        $practice->delete();
+
+        return true;
     }
 }

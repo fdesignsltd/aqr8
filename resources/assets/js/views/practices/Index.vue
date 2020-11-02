@@ -130,7 +130,7 @@
           v-model="selectAllFieldStatus"
           type="checkbox"
           class="custom-control-input"
-          @change="selectAllItems"
+          @change="selectAllPractices"
         >
         <label v-show="!isRequestOngoing" for="select-all" class="custom-control-label selectall">
           <span class="select-all-label">{{ $t('general.select_all') }} </span>
@@ -234,8 +234,8 @@ export default {
       filtersApplied: false,
       filters: {
         name: '',
-        unit: '',
-        price: ''
+        email: '',
+        phone: ''
       }
     }
   },
@@ -260,7 +260,7 @@ export default {
         return this.selectedPractices
       },
       set: function (val) {
-        this.selectItem(val)
+        this.selectPractice(val)
       }
     },
     selectAllFieldStatus: {
@@ -281,16 +281,16 @@ export default {
 
   destroyed () {
     if (this.selectAllField) {
-      this.selectAllItems()
+      this.selectAllPractices()
     }
   },
   methods: {
     ...mapActions('practice', [
       'fetchPractices',
-      'selectAllItems',
-      'selectItem',
-      'deleteItem',
-      'deleteMultipleItems',
+      'selectAllPractices',
+      'selectPractice',
+      'deletePractice',
+      'deleteMultiplePractices',
       'setSelectAllState'
     ]),
     refreshTable () {
@@ -301,8 +301,8 @@ export default {
     async fetchData ({ page, filter, sort }) {
       let data = {
         search: this.filters.name !== null ? this.filters.name : '',
-        unit_id: this.filters.unit !== null ? this.filters.unit.id : '',
-        price: this.filters.price * 100,
+        email: this.filters.email !== null ? this.filters.email : '',
+        phone: this.filters.phone !== null ? this.filters.phone : '',
         orderByField: sort.fieldName || 'created_at',
         orderBy: sort.order || 'desc',
         page
@@ -330,8 +330,8 @@ export default {
     clearFilter () {
       this.filters = {
         name: '',
-        unit: '',
-        price: ''
+        email: '',
+        phone: ''
       }
 
       this.$nextTick(() => {
@@ -348,6 +348,7 @@ export default {
     },
     async removeItems (id) {
       this.id = id
+
       swal({
         title: this.$t('general.are_you_sure'),
         text: this.$tc('items.confirm_delete'),
@@ -356,7 +357,7 @@ export default {
         dangerMode: true
       }).then(async (willDelete) => {
         if (willDelete) {
-          let res = await this.deleteItem(this.id)
+          let res = await this.deletePractice(this.id)
           if (res.data.success) {
             window.toastr['success'](this.$tc('items.deleted_message', 1))
             this.$refs.table.refresh()
@@ -382,8 +383,8 @@ export default {
         dangerMode: true
       }).then(async (willDelete) => {
         if (willDelete) {
-          let res = await this.deleteMultipleItems()
-          if (res.data.success || res.data.items) {
+          let res = await this.deleteMultiplePractices()
+          if (res.data.success || res.data.practices) {
             window.toastr['success'](this.$tc('items.deleted_message', 2))
             this.$refs.table.refresh()
           } else if (res.data.error) {
