@@ -58,7 +58,20 @@ class PracticesController extends Controller
         $practice->practice_code = $request->practice_code;
         $practice->pct = $request->pct;
         $practice->mileage = $request->mileage;
+        $practice->manager = $request->manager;
+        $practice->address = $request->address;
+        $practice->post_code = $request->post_code;
+        $practice->phone = $request->phone;
+        $practice->fax = $request->fax;
         $practice->email = $request->email;
+        $practice->website = $request->website;
+        $practice->invoice_note = $request->invoice_note;
+        $practice->nhs_normal = $request->nhs_normal;
+        $practice->nhs_ooh = $request->nhs_ooh;
+        $practice->nhs_unpensioned = $request->nhs_unpensioned;
+        $practice->private = $request->private;
+        $practice->partners = $request->partners;
+        $practice->notes = $request->notes;
         $practice->user_id = Auth::id();
         $practice->save();
 
@@ -84,6 +97,23 @@ class PracticesController extends Controller
         $practice->practice_code = $request->practice_code;
         $practice->pct = $request->pct;
         $practice->mileage = $request->mileage;
+        $practice->manager = $request->manager;
+        $practice->address = $request->address;
+        $practice->post_code = $request->post_code;
+        $practice->phone = $request->phone;
+        $practice->fax = $request->fax;
+        $practice->email = $request->email;
+        $practice->website = $request->website;
+        $practice->invoice_note = $request->invoice_note;
+        $practice->nhs_normal = $request->nhs_normal;
+        $practice->nhs_ooh = $request->nhs_ooh;
+        $practice->nhs_unpensioned = $request->nhs_unpensioned;
+        $practice->private = $request->private;
+        $practice->partners = $request->partners;
+        $practice->notes = $request->notes;
+        $practice->user_id = Auth::id();
+
+
         $practice->save();
 
         return response()->json([

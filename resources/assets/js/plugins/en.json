@@ -126,6 +126,40 @@
     "percent": "Percent",
     "compound_tax": "Compound Tax"
   },
+  "practices" : {
+    "title": "Practices",
+    "practice": "Practice | Practices",
+    "new_practice": "New Practice",
+    "add_practice": "Save Practice",
+    "edit_practice": "Edit Practice",
+    "details": "Details",
+    "contacts": "Contacts",
+    "invoice_notes": "Invoice note",
+    "rates": "Rates",
+    "partners": "Partners",
+    "name": "Name",
+    "practice_code": "Practice Code",
+    "pct": "PCT",
+    "mileage": "Mileage",
+    "manager": "Manager",
+    "post_code": "Post Code",
+    "address": "Address",
+    "phone": "Phone",
+    "fax": "Fax",
+    "email": "Email",
+    "website": "Website",
+    "nhs_normal": "NHS Normal",
+    "nhs_ooh": "NHS OOH",
+    "nhs_Unpensioned": "NHS Unpensioned",
+    "private": "Private",
+    "notes": "Notes",
+    
+
+    "created_message": "Practice created successfully",
+    "updated_message": "Practice updated successfully",
+    "deleted_message": "Practice deleted successfully | Practices deleted successfully"
+    
+  },
   "customers": {
     "title": "Customers",
     "add_customer": "Add Customer",

@@ -18,6 +18,13 @@ class Practice extends Model
         'fax',
         'email',
         'website',
+        'invoice_note',
+        'nhs_normal',
+        'nhs_ooh',
+        'nhs_unpensioned',
+        'private',
+        'partners',
+        'notes',
         'user_id'
     ];
 
