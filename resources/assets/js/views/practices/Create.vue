@@ -11,6 +11,43 @@
     </div>
 
     <div class="customer-card card">
+
+      <ul class="tabs">
+        <li class="tab" @click="setActiveTab('INVOICES')">
+          <a :class="['tab-link', {'a-active': activeTab === 'INVOICES'}]" href="#">
+            {{ $t('practices.details') }}
+          </a>
+        </li>
+        <li class="tab" @click="setActiveTab('ESTIMATES')">
+          <a :class="['tab-link', {'a-active': activeTab === 'ESTIMATES'}]" href="#">
+            {{ $t('practices.contacts') }}
+            </a>
+        </li>
+        <li class="tab" @click="setActiveTab('PAYMENTS')">
+          <a :class="['tab-link', {'a-active': activeTab === 'PAYMENTS'}]" href="#">
+            {{ $t('practices.invoice_notes') }}
+          </a>
+        </li>
+        <li class="tab" @click="setActiveTab('ITEMS')">
+          <a :class="['tab-link', {'a-active': activeTab === 'ITEMS'}]" href="#">
+          {{ $t('practices.rates') }}
+            </a>
+        </li>
+
+         <li class="tab" @click="setActiveTab('ITEMS')">
+          <a :class="['tab-link', {'a-active': activeTab === 'ITEMS'}]" href="#">
+          {{ $t('practices.partners') }}
+            </a>
+        </li>
+
+         <li class="tab" @click="setActiveTab('ITEMS')">
+          <a :class="['tab-link', {'a-active': activeTab === 'ITEMS'}]" href="#">
+          {{ $t('practices.notes') }}
+            </a>
+        </li>
+
+
+      </ul>
   
           <form action="" @submit.prevent="submitPractice">
               <div class="card-body">
@@ -66,11 +103,12 @@
                   <div class="form-group">
                 <label class="form-label">{{ $t('practices.mileage') }}</label>
                  <div class="base-input">
-                  <base-input
-                  v-model.trim="formData.mileage"
-                  focus
-                  type="text"
-                  name="mileage"
+                  <input 
+                    type="number"
+                    class="input-field"
+                    v-model.trim="formData.mileage"
+                    name="mileage"
+                    step="0.01"
                 />
                 </div>
               </div>
@@ -94,6 +132,67 @@
                       
                     </div>
 
+                     <div class="form-group">
+                          <label class="form-label">{{ $t('practices.address2') }}</label>
+                          <div class="base-input">
+                            <base-input
+                            v-model.trim="formData.address2"
+                            focus
+                            type="text"
+                            name="address2"
+                          />
+                          </div>
+                    </div>
+                   
+                  <div class="form-group">
+                          <label class="form-label">{{ $t('practices.county') }}</label>
+                          <div class="base-input">
+                            <base-input
+                            v-model.trim="formData.county"
+                            focus
+                            type="text"
+                            name="county"
+                          />
+                          </div>
+                    </div>
+                    
+                    
+                     
+
+
+ <div class="form-group">
+                <label class="form-label">{{ $t('practices.phone') }}</label>
+                 <div class="base-input">
+                  <base-input
+                  v-model.trim="formData.phone"
+                  focus
+                  type="text"
+                  name="phone"
+                />
+                </div>
+              </div>
+
+
+ <div class="form-group">
+                          <label class="form-label">{{ $t('practices.website') }}</label>
+                          <div class="base-input">
+                            <base-input
+                            v-model.trim="formData.website"
+                            focus
+                            type="text"
+                            name="website"
+                          />
+                          </div>
+               </div>
+
+
+                     
+                    
+                    </div>
+                  
+                  <div class="col-sm-5">
+                   
+
 
                     <div class="form-group">
                           <label class="form-label">{{ $t('practices.address') }}</label>
@@ -108,33 +207,19 @@
                     </div>
 
                     <div class="form-group">
-                          <label class="form-label">{{ $t('practices.fax') }}</label>
+                          <label class="form-label">{{ $t('practices.address3') }}</label>
                           <div class="base-input">
                             <base-input
-                            v-model.trim="formData.fax"
+                            v-model.trim="formData.address3"
                             focus
                             type="text"
-                            name="fax"
+                            name="address3"
                           />
                           </div>
                     </div>
 
-                       <div class="form-group">
-                          <label class="form-label">{{ $t('practices.website') }}</label>
-                          <div class="base-input">
-                            <base-input
-                            v-model.trim="formData.website"
-                            focus
-                            type="text"
-                            name="website"
-                          />
-                          </div>
-               </div>
-                    
-                    </div>
-                  
-                  <div class="col-sm-5">
-                    <div class="form-group">
+
+<div class="form-group">
                       <label class="form-label">{{ $t('practices.post_code') }}</label>
                       <div class="base-input">
                         <base-input
@@ -146,20 +231,23 @@
                     </div>
                   </div>
 
-                  <div class="form-group">
-                <label class="form-label">{{ $t('practices.phone') }}</label>
-                 <div class="base-input">
-                  <base-input
-                  v-model.trim="formData.phone"
-                  focus
-                  type="text"
-                  name="phone"
-                />
-                </div>
-              </div>
 
 
-              <div class="form-group">
+<div class="form-group">
+                          <label class="form-label">{{ $t('practices.fax') }}</label>
+                          <div class="base-input">
+                            <base-input
+                            v-model.trim="formData.fax"
+                            focus
+                            type="text"
+                            name="fax"
+                          />
+                          </div>
+                    </div>
+
+ 
+
+                   <div class="form-group">
                           <label class="form-label">{{ $t('practices.email') }}</label>
                           <div class="base-input">
                             <base-input
@@ -170,7 +258,6 @@
                           />
                           </div>
                </div>
-
 
                 </div>
               </div>
@@ -183,11 +270,12 @@
                     <div class="col-sm-10">
                       <base-text-area
                         v-model.trim="formData.invoice_note"
-                        :tabindex="11"
                         type="text"
                         name="invoice_note"
                         rows="5"
-                        cols="10" />
+                        cols="10"
+                        style="font-weight:normal"
+                         />
                           <span>The default invoice note override any default invoice note specified on the option.</span>
                     </div>
               </div>
@@ -201,12 +289,13 @@
                       
                     <div class="form-group">
                         <label class="form-label">{{ $t('practices.nhs_normal') }}</label>
-                        <base-input
+                        <div class="base-input"><input
+                          type="number"
                           v-model.trim="formData.nhs_normal"
-                          focus
-                          type="text"
                           name="nhs_normal"
-                        />
+                          step="0.01"
+                          class="input-field"
+                        /></div>
                         <div v-if="$v.formData.name.$error">
                           <span v-if="!$v.formData.name.minLength" class="text-danger">
                             {{ $tc('validation.name_min_length', $v.formData.name.$params.minLength.min, { count: $v.formData.name.$params.minLength.min }) }}
@@ -218,11 +307,12 @@
                     <div class="form-group">
                           <label class="form-label">{{ $t('practices.nhs_Unpensioned') }}</label>
                           <div class="base-input">
-                            <base-input
+                            <input
+                            type="number"
                             v-model.trim="formData.nhs_unpensioned"
-                            focus
-                            type="text"
+                            step="0.01"
                             name="nhs_unpensioned"
+                              class="input-field"
                           />
                           </div>
                     </div>
@@ -235,11 +325,12 @@
                     <div class="form-group">
                       <label class="form-label">{{ $t('practices.nhs_ooh') }}</label>
                       <div class="base-input">
-                        <base-input
+                        <input
+                        type="number"
                         v-model.trim="formData.nhs_ooh"
-                        focus
-                        type="text"
+                        step="0.01"
                         name="nhs_ooh"
+                        class="input-field"
                       />
                     </div>
                   </div>
@@ -247,11 +338,12 @@
                   <div class="form-group">
                 <label class="form-label">{{ $t('practices.private') }}</label>
                  <div class="base-input">
-                  <base-input
-                  v-model.trim="formData.private"
-                  focus
-                  type="text"
-                  name="private"
+                  <input
+                  type="number"
+                  v-model.trim="formData.privatenote"
+                  name="privatenote"
+                  step='0.01'
+                    class="input-field"
                 />
                 </div>
               </div>
@@ -285,7 +377,6 @@
                         name="partners"
                         rows="5"
                         cols="10" />
-                      <span>The default invoice note override any default invoice note specified on the option.</span>
                     </div>
               </div>
 
@@ -300,7 +391,6 @@
                         rows="5"
                         cols="10" />
                      
-                      <span>The default invoice note override any default invoice note specified on the option.</span>
                     </div>
               </div>
 
@@ -351,6 +441,10 @@ export default {
         mileage: '',
         manager: '',
         address: '',
+        address2: '',
+        address3: '',
+        county: '',
+        city: '',
         post_code: '',
         phone: '',
         fax: '',
@@ -360,7 +454,7 @@ export default {
         nhs_normal: '',
         nhs_ooh: '',
         nhs_unpensioned: '',
-        private: '',
+        privatenote: '',
         partners: '',
         notes: ''
       }
@@ -408,6 +502,10 @@ export default {
       this.formData.mileage = practice.mileage
       this.formData.manager = practice.manager
       this.formData.address = practice.address
+      this.formData.address2 = practice.address2
+      this.formData.address3 = practice.address3
+      this.formData.county = practice.county
+      this.formData.city = practice.city
       this.formData.post_code = practice.post_code
       this.formData.phone = practice.phone
       this.formData.fax = practice.fax
@@ -418,6 +516,7 @@ export default {
       this.formData.nhs_ooh = practice.nhs_ooh
       this.formData.nhs_unpensioned = practice.nhs_unpensioned
       this.formData.partners = practice.partners
+      this.formData.privatenote = practice.privatenote
       this.formData.notes = practice.notes
       
       },
@@ -467,10 +566,11 @@ export default {
 
       }
 
+   },
+    setActiveTab (val) {
+      this.activeTab = val
+    }
    }
-
-   }
-
 }  
 </script>
 

@@ -60,6 +60,10 @@ class PracticesController extends Controller
         $practice->mileage = $request->mileage;
         $practice->manager = $request->manager;
         $practice->address = $request->address;
+        $practice->address2 = $request->address2;
+        $practice->address3 = $request->address3;
+        $practice->county = $request->county;
+        $practice->city = $request->city;
         $practice->post_code = $request->post_code;
         $practice->phone = $request->phone;
         $practice->fax = $request->fax;
@@ -69,7 +73,7 @@ class PracticesController extends Controller
         $practice->nhs_normal = $request->nhs_normal;
         $practice->nhs_ooh = $request->nhs_ooh;
         $practice->nhs_unpensioned = $request->nhs_unpensioned;
-        $practice->private = $request->private;
+        $practice->privatenote = $request->privatenote;
         $practice->partners = $request->partners;
         $practice->notes = $request->notes;
         $practice->user_id = Auth::id();
@@ -99,6 +103,9 @@ class PracticesController extends Controller
         $practice->mileage = $request->mileage;
         $practice->manager = $request->manager;
         $practice->address = $request->address;
+        $practice->address2 = $request->address2;
+        $practice->address3 = $request->address3;
+        $practice->county = $request->county;
         $practice->post_code = $request->post_code;
         $practice->phone = $request->phone;
         $practice->fax = $request->fax;
@@ -108,7 +115,7 @@ class PracticesController extends Controller
         $practice->nhs_normal = $request->nhs_normal;
         $practice->nhs_ooh = $request->nhs_ooh;
         $practice->nhs_unpensioned = $request->nhs_unpensioned;
-        $practice->private = $request->private;
+        $practice->privatenote = $request->privatenote;
         $practice->partners = $request->partners;
         $practice->notes = $request->notes;
         $practice->user_id = Auth::id();
