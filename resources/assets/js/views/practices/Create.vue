@@ -1,6 +1,8 @@
 <template>
 
 <div class="customer-create main-content">
+
+  <form action="" @submit.prevent="submitPractice">
     <div class="page-header">
       <h3 class="page-title">{{ isEdit ? $t('practices.edit_practice') : $t('practices.add_practice') }}</h3>
       <ol class="breadcrumb">
@@ -8,6 +10,20 @@
         <li class="breadcrumb-item"><router-link slot="item-title" to="/admin/practices">{{ $tc('practices.practice', 2) }}</router-link></li>
         <li class="breadcrumb-item"><a href="#"> {{ isEdit ? $t('practices.edit_practice') : $t('practices.add_practice') }} </a></li>
       </ol>
+        <div class="page-actions header-button-container">
+          <base-button
+            :loading="isLoading"
+            :disabled="isLoading"
+            :tabindex="23"
+            icon="save"
+            color="theme"
+            type="submit"
+          >
+            {{ isEdit ? $t('practices.edit_practice') : $t('practices.add_practice') }}
+          </base-button>
+        </div>
+
+      
     </div>
 
     <div class="customer-card card">
@@ -41,7 +57,7 @@
 
       
   
-          <form action="" @submit.prevent="submitPractice">
+          
               <div class="card-body">
 
           <!-- Details Tab -->
@@ -410,8 +426,7 @@
       </transition> 
 
              
-
-               <div class="form-group">
+              <!-- <div class="form-group">
                 <base-button
                   :loading="isLoading"
                   :disabled="isLoading"
@@ -422,15 +437,14 @@
                 >
                  {{ isEdit ? $t('practices.edit_practice') : $t('practices.add_practice') }}
                 </base-button>
-              </div>
+              </div>-->
 
 
               </div>
-          </form>
         
-    </div>
+        </div>
 
-
+        </form>
   </div>  
   
 </template>
