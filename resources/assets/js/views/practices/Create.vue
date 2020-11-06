@@ -13,44 +13,42 @@
     <div class="customer-card card">
 
       <ul class="tabs">
-        <li class="tab" @click="setActiveTab('INVOICES')">
-          <a :class="['tab-link', {'a-active': activeTab === 'INVOICES'}]" href="#">
+        <li class="tab" @click="setActiveTab('DETAILS')">
+          <a :class="['tab-link', {'a-active': activeTab === 'DETAILS'}]" href="#">
             {{ $t('practices.details') }}
           </a>
         </li>
-        <li class="tab" @click="setActiveTab('ESTIMATES')">
-          <a :class="['tab-link', {'a-active': activeTab === 'ESTIMATES'}]" href="#">
+
+        <li class="tab" @click="setActiveTab('CONTACTS')">
+          <a :class="['tab-link', {'a-active': activeTab === 'CONTACTS'}]" href="#">
             {{ $t('practices.contacts') }}
             </a>
         </li>
-        <li class="tab" @click="setActiveTab('PAYMENTS')">
-          <a :class="['tab-link', {'a-active': activeTab === 'PAYMENTS'}]" href="#">
-            {{ $t('practices.invoice_notes') }}
+
+        <li class="tab" @click="setActiveTab('RATES')">
+          <a :class="['tab-link', {'a-active': activeTab === 'RATES'}]" href="#">
+            {{ $t('practices.rates') }}
           </a>
         </li>
-        <li class="tab" @click="setActiveTab('ITEMS')">
-          <a :class="['tab-link', {'a-active': activeTab === 'ITEMS'}]" href="#">
-          {{ $t('practices.rates') }}
-            </a>
-        </li>
-
-         <li class="tab" @click="setActiveTab('ITEMS')">
-          <a :class="['tab-link', {'a-active': activeTab === 'ITEMS'}]" href="#">
-          {{ $t('practices.partners') }}
-            </a>
-        </li>
-
-         <li class="tab" @click="setActiveTab('ITEMS')">
-          <a :class="['tab-link', {'a-active': activeTab === 'ITEMS'}]" href="#">
+  
+         <li class="tab" @click="setActiveTab('NOTES')">
+          <a :class="['tab-link', {'a-active': activeTab === 'NOTES'}]" href="#">
           {{ $t('practices.notes') }}
             </a>
         </li>
 
-
       </ul>
+
+      
   
           <form action="" @submit.prevent="submitPractice">
               <div class="card-body">
+
+          <!-- Details Tab -->
+          <transition name="fade-customize">
+            <div v-if="activeTab === 'DETAILS'" class="invoice-tab">
+          
+
                 <div class="row">
                   <div class="section-title col-sm-2">{{ $t('practices.details') }}</div>
                     <div class="col-sm-5">
@@ -115,7 +113,14 @@
                 </div>
               </div>
 
-              <hr/>
+ </div>
+      </transition>
+
+
+        <!-- Contacts Tab -->
+          <transition name="fade-customize">
+            <div v-if="activeTab === 'CONTACTS'" class="estimate-tab">
+
 
               <div class="row">
                   <div class="section-title col-sm-2">{{ $t('practices.contacts') }}</div>
@@ -262,26 +267,13 @@
                 </div>
               </div>
 
-              <hr/>
+             </div>
+      </transition>  
 
 
-              <div class="row">
-                  <div class="section-title col-sm-2">{{ $t('practices.invoice_notes') }}</div>
-                    <div class="col-sm-10">
-                      <base-text-area
-                        v-model.trim="formData.invoice_note"
-                        type="text"
-                        name="invoice_note"
-                        rows="5"
-                        cols="10"
-                        style="font-weight:normal"
-                         />
-                          <span>The default invoice note override any default invoice note specified on the option.</span>
-                    </div>
-              </div>
-
-              <hr/>
-
+         <!-- Rates Tab -->
+      <transition name="fade-customize">
+            <div v-if="activeTab === 'RATES'" class="payment-tab">
              
               <div class="row">
                   <div class="section-title col-sm-2">{{ $t('practices.rates') }}</div>
@@ -355,7 +347,28 @@
                 
               </div>
 
+      </div>
+      </transition>         
+
+ <!-- Notes Tab -->
+          <transition name="fade-customize">
+            <div v-if="activeTab === 'NOTES'" class="item-tab">
+
               <div class="row">
+                  <div class="section-title col-sm-2">{{ $t('practices.invoice_notes') }}</div>
+                    <div class="col-sm-10">
+                      <base-text-area
+                        v-model.trim="formData.invoice_note"
+                        type="text"
+                        name="invoice_note"
+                        rows="5"
+                        cols="10"
+                        style="font-weight:normal"
+                         />
+                          <span>The default invoice note override any default invoice note specified on the option.</span>
+                    </div>
+              </div>
+               <div class="row">
                 <div class="section-title col-sm-2"></div>
                 <div class="col-sm-10">
                   <p>These are the default hourly rates for each session type for this practice</p>
@@ -365,9 +378,7 @@
                 </div>
               </div>
 
-              <hr/>
-
-                <div class="row">
+              <div class="row">
                   <div class="section-title col-sm-2">{{ $t('practices.partners') }}</div>
                     <div class="col-sm-10">
                           <base-text-area
@@ -394,9 +405,11 @@
                     </div>
               </div>
 
-             
 
-                
+                   </div>
+      </transition> 
+
+             
 
                <div class="form-group">
                 <base-button
@@ -433,6 +446,7 @@ export default {
   },
   data () {
     return {
+      activeTab: 'DETAILS',
       isLoading: false,
       formData: {
         name: '',
