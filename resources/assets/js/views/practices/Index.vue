@@ -3,7 +3,7 @@
     <div class="page-header">
       <div class="d-flex flex-row">
         <div>
-          <h3 class="page-title">Practices</h3>
+          <h3 class="page-title"> {{ $t('practices.title') }} </h3>
         </div>
       </div>
       <ol class="breadcrumb">
@@ -18,7 +18,7 @@
           <router-link
             slot="item-title"
             to="#">
-           Practices
+            {{ $t('practices.title') }}
           </router-link>
         </li>
       </ol>
@@ -42,7 +42,7 @@
             icon="plus"
             size="large"
           >
-            Add Practice
+             {{ $t('practices.new_practice') }}
           </base-button>
         </router-link>
       </div>
@@ -52,7 +52,7 @@
       <div v-show="showFilters" class="filter-section">
         <div class="row">
           <div class="col-sm-4">
-            <label class="form-label">NAME </label>
+            <label class="form-label"> {{ $t('practices.name') }} </label>
             <base-input
               v-model="filters.name"
               type="text"
@@ -60,8 +60,10 @@
               autocomplete="off"
             />
           </div>
+         
+
           <div class="col-sm-4">
-            <label class="form-label">Email </label>
+            <label class="form-label">{{ $t('practices.email') }}  </label>
             <base-input
               v-model="filters.email"
               type="text"
@@ -70,7 +72,7 @@
             />
           </div>
           <div class="col-sm-4">
-            <label class="form-label"> Phone</label>
+            <label class="form-label"> {{ $t('practices.phone') }}</label>
             <base-input
               v-model="filters.phone"
               type="text"
@@ -86,11 +88,11 @@
     <div v-cloak v-show="showEmptyScreen" class="col-xs-1 no-data-info" align="center">
       <satellite-icon class="mt-5 mb-4"/>
       <div class="row" align="center">
-        <label class="col title">No Practices yet!</label>
+        <label class="col title">{{ $t('practices.nopractie') }}</label>
       </div>
       <div class="row">
         <label class="description col mt-1" align="center">
-           This section will contain the list of practices.
+          {{ $t('practices.secdesc') }}
           </label>
       </div>
       <div class="btn-container">
@@ -162,23 +164,58 @@
             </div>
           </template>
         </table-column>
+
+        
         <table-column
-          :label="'Name'"
+          :label="$t('practices.name')"
           show="name"
         />
         <table-column
-          :label="'Practice Code'"
-          show="practice_code"
+          :label="$t('practices.manager')"
+          show="manager"
+        />
+
+         <table-column
+          :label="$t('practices.address')"
+          show="address"
+      />
+
+      
+         <table-column
+          :label="$t('practices.post_code')"
+          show="post_code"
+        />
+
+
+           <table-column
+          :label="$t('practices.email')"
+          show="email"
+        />
+
+
+           <table-column
+          :label="$t('practices.phone')"
+          show="phone"
+        />
+
+         <table-column
+          :label="$t('practices.website')"
+          show="website"
         />
         <table-column
-          :label="'Email'"
-          show="email"
+          :label="$t('practices.notes')"
+          show="invoice_note"
         >
         </table-column>
         <table-column
-          :label="'Phone'"
+          :label="$t('practices.partners')"
           sort-as="created_at"
-          show="phone"
+          show="partners"
+        />
+         <table-column
+          :label="$t('practices.practice_code')"
+          sort-as="created_at"
+          show="practice_code"
         />
         <table-column
           :sortable="false"

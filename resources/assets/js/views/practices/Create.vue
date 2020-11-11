@@ -4,7 +4,7 @@
 
   <form action="" @submit.prevent="submitPractice">
     <div class="page-header">
-      <h3 class="page-title">{{ isEdit ? $t('practices.edit_practice') : $t('practices.add_practice') }}</h3>
+      <h3 class="page-title">{{ $t('practices.title') }}</h3>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><router-link slot="item-title" to="/admin/dashboard">{{ $t('general.home') }}</router-link></li>
         <li class="breadcrumb-item"><router-link slot="item-title" to="/admin/practices">{{ $tc('practices.practice', 2) }}</router-link></li>

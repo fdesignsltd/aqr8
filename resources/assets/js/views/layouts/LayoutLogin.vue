@@ -46,7 +46,7 @@ export default {
     setLayoutClasses () {
       let body = $('body')
       body.removeClass()
-      body.addClass('login-page login-1 skin-crater')
+      body.addClass('login-page login-1 skin-index')
     }
   },
   onRouteChange () {
