@@ -18,6 +18,7 @@
 Route::group(['prefix' => 'auth'], function () {
 
     Route::post('login', 'Auth\AccessTokensController@store');
+    Route::post('register', 'Auth\AccessTokensController@register');
     Route::get('logout', 'Auth\AccessTokensController@destroy');
     Route::post('refresh_token', 'Auth\AccessTokensController@update');
 
@@ -177,6 +178,20 @@ Route::group(['middleware' => 'api'], function () {
         ]);
 
 
+        /*
+        // Practices
+        //----------------------------------
+
+        Route::post('/practices/delete', [
+            'as' => 'practices.delete',
+            'uses' => 'PracticesController@delete'
+        ]);
+
+        Route::resource('practices', 'PracticesController');
+
+            */
+
+
         // Customers
         //----------------------------------
 
@@ -186,6 +201,19 @@ Route::group(['middleware' => 'api'], function () {
         ]);
 
         Route::resource('customers', 'CustomersController');
+
+
+
+          // Practices
+        //----------------------------------
+
+        Route::post('/practices/delete', [
+            'as' => 'practices.delete',
+            'uses' => 'PracticesController@delete'
+        ]);
+
+        Route::resource('practices', 'PracticesController');
+
 
 
         // Items

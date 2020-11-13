@@ -28,6 +28,24 @@ export const login = ({ commit, dispatch, state }, data) => {
   })
 }
 
+export const register = ({ commit, dispatch, state }, data) => {
+
+  let loginData = {
+    username: data.email,
+    password: data.password
+  }
+  
+  return new Promise((resolve, reject) => {
+    window.axios.post('/api/auth/register', loginData).then((response) => {
+      console.log(response.data.user)
+      resolve(response)
+    }).catch((err) => {
+      reject(err)
+    })
+  })
+}
+
+
 export const refreshToken = ({ commit, dispatch, state }) => {
   return new Promise((resolve, reject) => {
     let data = {
@@ -72,3 +90,5 @@ export const logout = ({ commit, dispatch, state }, noRequest = false) => {
 export const loginOnBoardingUser = ({ commit, dispatch, state }, token) => {
   commit(types.AUTH_SUCCESS, token)
 }
+
+

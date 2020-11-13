@@ -1,8 +1,11 @@
 <template>
-  <form id="registerForm" @submit.prevent="validateBeforeSubmit">
-    <!-- {{ csrf_field() }} -->
+  <form
+    id="registerForm"
+      @submit.prevent="submitUser"
+  >
+ <!-- {{ csrf_field() }} -->
 
-    <div class="form-group">
+  <div class="form-group">
       <base-input
         :invalid="$v.formData.email.$error"
         v-model="formData.email"
@@ -20,7 +23,7 @@
           {{ $tc('validation.email_incorrect') }}
         </span>
       </div>
-    </div>
+  </div>
 
     <div class="form-group">
       <base-input
@@ -43,7 +46,8 @@
     </div>
 
     <div class="form-group">
-      <base-input
+
+       <base-input
         :invalid="$v.formData.password_confirmation.$error"
         v-model="formData.password_confirmation"
         :placeholder="$t('login.retype_password')"
@@ -53,93 +57,93 @@
         @input="$v.formData.password_confirmation.$touch()"
       />
       <div v-if="$v.formData.password_confirmation.$error">
-        <span
-          v-if="!$v.formData.password_confirmation.required"
-          class="text-danger"
-        >
+        <span v-if="!$v.formData.password_confirmation.required" class="text-danger">
           {{ $tc('validation.required') }}
         </span>
-        <span
-          v-if="!$v.formData.password_confirmation.minLength"
-          class="text-danger"
-        >
+        <span v-if="!$v.formData.password_confirmation.minLength" class="text-danger">
           {{ $tc('login.password_max') }}
         </span>
-        <span
-          v-if="!$v.formData.password_confirmation.sameAsPassword"
-          class="text-danger"
-        >
+        <span v-if="!$v.formData.password_confirmation.sameAsPassword" class="text-danger">
           {{ $tc('login.password_same') }}
         </span>
+
       </div>
+
+     
     </div>
-    <base-button class="btn btn-login btn-full" type="submit">{{
-      $t('login.register')
-    }}</base-button>
+    <base-button class="btn btn-login btn-full" type="submit">{{ $t('login.register') }}</base-button>
   </form>
 </template>
 
 <script type="text/babel">
 import { mapActions } from 'vuex'
 import { validationMixin } from 'vuelidate'
-const {
-  required,
-  email,
-  minLength,
-  numeric,
-  minValue,
-  maxLength,
-  sameAs,
-} = require('vuelidate/lib/validators')
+const { required,email, minLength, numeric, minValue, maxLength,sameAs } = require('vuelidate/lib/validators')
 
 export default {
   mixins: [validationMixin],
-  data() {
+  data () {
     return {
       formData: {
         email: '',
         password: '',
-        password_confirmation: '',
+        password_confirmation: ''
       },
       submitted: false,
-      isLoading: false,
+      isLoading: false
+
     }
   },
-  validations: {
+   validations: {
     formData: {
       email: {
         required,
-        email,
+        email
       },
       password: {
         required,
-        minLength: minLength(8),
+        minLength: minLength(8)
       },
       password_confirmation: {
         required,
         minLength: minLength(8),
-        sameAsPassword: sameAs('password'),
-      },
-    },
+         sameAsPassword: sameAs('password')
+      }
+    }
   },
   methods: {
-    ...mapActions('auth', ['login']),
-     validateBeforeSubmit() {
+    ...mapActions('auth', [
+      'register'
+    ]),
+      async submitUser () {
       this.$v.formData.$touch()
+
       if (this.$v.$invalid) {
         return true
       }
 
+      
       this.isLoading = true
-      this.login(this.formData)
-        .then((res) => {
-          this.$router.push('/admin/dashboard')
-          this.isLoading = false
-        })
-        .catch(() => {
-          this.isLoading = false
-        })
-    },
-  },
+
+         try {
+         let response = await this.register(this.formData)
+          if (response.data.success) {
+            window.toastr['success']('New User Created Successfully, Please login with credentails')
+            this.$router.push('/admin/dashboard')
+            this.isLoading = false
+            return true
+          }
+        } catch (err) {
+          if (err.response.data.errors.email) {
+            this.isLoading = false
+            window.toastr['error'](this.$t('validation.email_already_taken'))
+          }
+        }
+
+
+      
+
+   }
+  }
 }
 </script>

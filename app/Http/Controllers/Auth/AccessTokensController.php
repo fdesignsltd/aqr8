@@ -66,6 +66,31 @@ class AccessTokensController extends Controller
 		return $this->requestPasswordGrant($request);
 	}
 
+
+	public function register(Request $request)
+	{
+		$request->validate([
+			'username' => 'required|email',
+			'password' => 'required|string|min:8',
+		]);
+
+		$user = new User();
+		$user->name = 'customer';
+		$user->email = $request->username;
+		$user->password = $request->password;
+		$user->role = 'admin';
+		$user->company_id  = 1;
+		$user->save();
+		$user = User::find($user->id);
+
+		
+        return response()->json([
+            'user' => $user,
+            'success' => true
+        ]);
+
+	}
+
 	/**
 	 * Refresh an access token.
 	 *
