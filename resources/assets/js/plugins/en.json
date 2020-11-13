@@ -484,7 +484,9 @@
     "enter_email": "Enter email",
     "enter_password": "Enter Password",
     "retype_password": "Retype Password",
-    "login_placeholder": "mail@example.com"
+    "login_placeholder": "mail@example.com",
+    "password_max": "Min 8 Characters",
+    "password_same": "Password not same"
   },
   "reports": {
     "title": "Report",
