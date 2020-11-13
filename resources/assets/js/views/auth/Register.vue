@@ -124,7 +124,7 @@ export default {
   },
   methods: {
     ...mapActions('auth', ['login']),
-    async validateBeforeSubmit() {
+     validateBeforeSubmit() {
       this.$v.formData.$touch()
       if (this.$v.$invalid) {
         return true
