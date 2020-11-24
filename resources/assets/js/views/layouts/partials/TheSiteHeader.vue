@@ -1,17 +1,7 @@
 <template>
   <header class="site-header">
     <a href="/" class="brand-main">
-      <img
-        id="logo-white"
-        src="/assets/img/logo-white.png"
-        alt="Crater Logo"
-        class="d-none d-md-inline"
-      >
-      <img
-        id="logo-mobile"
-        src="/assets/img/crater-white-small.png"
-        alt="Laraspace Logo"
-        class="d-md-none">
+      AQR8
     </a>
 
     <a

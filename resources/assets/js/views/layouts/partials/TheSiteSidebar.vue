@@ -2,6 +2,7 @@
   <div class="sidebar-left">
     <div class="sidebar-body scroll-pane">
       <div class="side-nav">
+
         <div
           v-for="(menuItems, index) in menu"
           :key="index"
@@ -14,6 +15,7 @@
             class="menu-item"
             @click.native="Toggle"
           >
+
             <font-awesome-icon :icon="item.icon" class="icon menu-icon" /> <span class="ml-3 menu-text">{{ $t(item.title) }}</span>
           </router-link>
         </div>
@@ -35,6 +37,13 @@ export default {
             icon: 'tachometer-alt',
             route: '/admin/dashboard'
           },
+          
+          {
+            title: 'navigation.practice',
+            icon: 'user',
+            route: '/admin/practices'
+          },
+
           {
             title: 'navigation.customers',
             icon: 'user',

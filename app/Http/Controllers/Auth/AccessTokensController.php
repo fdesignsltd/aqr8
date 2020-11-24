@@ -12,6 +12,7 @@ use Crater\User;
 use Auth;
 use Crater\Http\Controllers\Controller;
 
+
 class AccessTokensController extends Controller
 {
 	use ThrottlesLogins;
@@ -77,7 +78,7 @@ class AccessTokensController extends Controller
 		$user = new User();
 		$user->name = 'customer';
 		$user->email = $request->username;
-		$user->password = $request->password;
+		$user->password =  Hash::make($request->password);
 		$user->role = 'admin';
 		$user->company_id  = 1;
 		$user->save();

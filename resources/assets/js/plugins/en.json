@@ -2,6 +2,8 @@
   "navigation": {
     "dashboard": "Dashboard",
     "customers": "Customers",
+    "practice": "Practices",
+    "client": "Clients",
     "items": "Items",
     "invoices": "Invoices",
     "expenses": "Expenses",
@@ -123,6 +125,46 @@
     "description": "Description",
     "percent": "Percent",
     "compound_tax": "Compound Tax"
+  },
+  "practices" : {
+    "title": "Practices",
+    "practice": "Practice | Practices",
+    "new_practice": "New Practice",
+    "add_practice": "Save Practice",
+    "edit_practice": "Edit Practice",
+    "details": "Details",
+    "contacts": "Contacts",
+    "invoice_notes": "Invoice Note",
+    "rates": "Rates",
+    "partners": "Partners",
+    "name": "Name",
+    "practice_code": "Practice Code",
+    "pct": "PCT",
+    "mileage": "Mileage",
+    "manager": "Manager",
+    "post_code": "Post Code",
+    "address": "Address",
+    "address2": "Address 2",
+    "address3": "Address 3",
+    "county": "County",
+    "phone": "Phone",
+    "fax": "Fax",
+    "email": "Email",
+    "website": "Website",
+    "nhs_normal": "NHS Normal",
+    "nhs_ooh": "NHS OOH",
+    "nhs_Unpensioned": "NHS Unpensioned",
+    "private": "Private",
+    "notes": "Notes",
+    "nopractie": "No Practices yet!",
+    "secdesc": "This section will contain the list of practices.",
+
+    
+
+    "created_message": "Practice created successfully",
+    "updated_message": "Practice updated successfully",
+    "deleted_message": "Practice deleted successfully | Practices deleted successfully"
+    
   },
   "customers": {
     "title": "Customers",
@@ -612,7 +654,7 @@
       "company_info": "Company info",
       "company_name": "Company Name",
       "company_logo": "Company Logo",
-      "section_description": "Information about your company that will be displayed on invoices, estimates and other documents created by Crater.",
+      "section_description": "Information about your company that will be displayed on invoices, estimates and other documents created by AQR8.",
       "phone": "Phone",
       "country": "Country",
       "state": "State",
@@ -727,7 +769,7 @@
       "email": "Send Notifications to",
       "description": "Which email notifications would you like to receive when something changes?",
       "invoice_viewed": "Invoice viewed",
-      "invoice_viewed_desc": "When your customer views the invoice sent via crater dashboard.",
+      "invoice_viewed_desc": "When your customer views the invoice sent via AQR8 dashboard.",
       "estimate_viewed": "Estimate viewed",
       "estimate_viewed_desc": "When your customer views the estimate sent via crater dashboard.",
       "save": "Save",
@@ -738,7 +780,7 @@
       "title": "Tax Types",
       "add_tax": "Add Tax",
       "edit_tax": "Edit Tax",
-      "description": "You can add or Remove Taxes as you please. Crater supports Taxes on Individual Items as well as on the invoice.",
+      "description": "You can add or Remove Taxes as you please. AQR8 supports Taxes on Individual Items as well as on the invoice.",
       "add_new_tax": "Add New Tax",
       "tax_settings": "Tax Settings",
       "tax_per_item": "Tax Per Item",
@@ -788,7 +830,7 @@
     },
     "update_app": {
       "title": "Update App",
-      "description": "You can easily update Crater by checking for a new update by clicking the button below",
+      "description": "You can easily update AQR8 by checking for a new update by clicking the button below",
       "check_update": "Check for updates",
       "avail_update": "New Update available",
       "next_version": "Next version",
@@ -879,7 +921,7 @@
       "system_req": "System Requirements",
       "php_req_version": "Php (version {version} required)",
       "check_req": "Check Requirements",
-      "system_req_desc": "Crater has a few server requirements. Make sure that your server has the required php version and all the extensions mentioned below."
+      "system_req_desc": "AQR8 has a few server requirements. Make sure that your server has the required php version and all the extensions mentioned below."
     },
     "errors": {
       "migrate_failed": "Migrate Failed",
@@ -894,11 +936,11 @@
     }
   },
   "layout_login": {
-    "copyright_crater": "Copyright @ Crater - 2020",
-    "super_simple_invoicing": "Super Simple Invoicing",
-    "for_freelancer": "for Freelancers &",
+    "copyright_crater": "Copyright @ AQR8 - 2020",
+    "super_simple_invoicing": "Web Invoicing",
+    "for_freelancer": "for Doctors &",
     "small_businesses": "Small Businesses ",
-    "crater_help": "Crater helps you track expenses, record payments & generate beautiful",
+    "crater_help": "AQR8 helps you track expenses, record payments & generate beautiful",
     "invoices_and_estimates": "invoices & estimates with ability to choose multiple templates."
   },
   "validation": {

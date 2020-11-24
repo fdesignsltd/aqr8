@@ -30,6 +30,8 @@ import NotFoundPage from './views/errors/404.vue'
 // Dashbord
 import Dashboard from './views/dashboard/Dashboard.vue'
 
+
+
 // Customers
 import CustomerIndex from './views/customers/Index.vue'
 import CustomerCreate from './views/customers/Create.vue'
@@ -37,6 +39,12 @@ import CustomerCreate from './views/customers/Create.vue'
 // Items
 import ItemsIndex from './views/items/Index.vue'
 import ItemCreate from './views/items/Create.vue'
+
+
+// Practices
+import PracticeIndex from './views/practices/Index.vue'
+import PracticeCreate from './views/practices/Create.vue'
+
 
 // Invoices
 import InvoiceIndex from './views/invoices/Index.vue'
@@ -177,6 +185,24 @@ const routes = [
         name: 'customers.edit',
         component: CustomerCreate
       },
+
+
+       // Practices
+       {
+        path: 'practices',
+        component: PracticeIndex
+      },
+      {
+        path: 'practices/create',
+        name: 'practices.create',
+        component: PracticeCreate
+      },
+      {
+        path: 'practices/:id/edit',
+        name: 'practices.edit',
+        component: PracticeCreate
+      },
+
 
       // Items
       {
